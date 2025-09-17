@@ -15,7 +15,6 @@
     "phaser": "^3.87.0"
   },
   "devDependencies": {
-    "live-server": "^1.2.2",
     "webpack": "^5.96.1",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^5.1.0"
