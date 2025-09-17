@@ -1,0 +1,243 @@
+:root {
+    --bg: #0f1724;
+    --card: #1e293b;
+    --accent: #6ee7b7;
+    --muted: #94a3b8;
+    --correct: #10b981;
+    --wrong: #ef4444;
+    --glass: rgba(255, 255, 255, 0.03);
+}
+
+* {
+    box-sizing: border-box;
+    font-family: Inter, ui-sans-serif, system-ui, Arial;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(180deg, #071024 0%, #081226 60%);
+    color: #e6eef8;
+    padding: 20px;
+}
+
+.container {
+    width: 980px;
+    max-width: 100%;
+    background: var(--card);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(2, 6, 23, 0.6);
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+h1 {
+    font-size: 20px;
+    margin: 0;
+}
+
+.controls {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+select,
+.toggle {
+    background: var(--glass);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    color: var(--muted);
+    padding: 8px 10px;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.toggle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px;
+}
+
+.switch {
+    position: relative;
+    width: 46px;
+    height: 26px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 99px;
+    padding: 3px;
+    cursor: pointer;
+}
+
+.knob {
+    width: 20px;
+    height: 20px;
+    background: white;
+    border-radius: 50%;
+    transform: translateX(0);
+    transition: transform .18s ease;
+}
+
+.switch.on {
+    background: linear-gradient(90deg, #16a34a, #34d399);
+}
+
+.switch.on .knob {
+    transform: translateX(20px);
+}
+
+.main {
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+}
+
+.quiz {
+    flex: 1;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent);
+    padding: 18px;
+    border-radius: 10px;
+    min-height: 300px;
+}
+
+.meta {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.question-box {
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 10px;
+    padding: 24px;
+    text-align: center;
+    font-size: 48px;
+    letter-spacing: 4px;
+    min-height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 16px;
+}
+
+.opt {
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 8px;
+    padding: 12px;
+    cursor: pointer;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: flex-start;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    transition: transform .08s ease, background .15s ease, border-color .12s ease;
+    user-select: none;
+}
+
+.opt:hover {
+    transform: translateY(-3px);
+}
+
+.label {
+    font-weight: 700;
+    width: 26px;
+    display: inline-block;
+    text-align: center;
+}
+
+.text {
+    font-size: 22px;
+}
+
+.opt.wrong {
+    background: rgba(239, 68, 68, 0.12);
+    border-color: rgba(239, 68, 68, 0.28);
+}
+
+.opt.correct {
+    background: rgba(16, 185, 129, 0.12);
+    border-color: rgba(16, 185, 129, 0.28);
+}
+
+.sidebar {
+    width: 260px;
+    background: rgba(255, 255, 255, 0.02);
+    padding: 12px;
+    border-radius: 8px;
+}
+
+.stat {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 8px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 12px;
+    border-radius: 8px;
+    background: var(--accent);
+    color: #042024;
+    font-weight: 700;
+    cursor: pointer;
+    border: none;
+}
+
+.controls small {
+    color: var(--muted);
+    display: block;
+    text-align: center;
+    font-size: 12px;
+}
+
+.countdown {
+    width: 48px;
+    height: 48px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 18px;
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.message {
+    margin-top: 10px;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.muted {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+/* responsive */
+@media (max-width:900px) {
+    .main {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+    }
+}
