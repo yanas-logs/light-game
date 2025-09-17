@@ -1,11 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Nihongo Quiz Master</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    
+    <div class="container" role="application" aria-label="Japanese Character Quiz">
+        <header>
+            <h1>Nihongo Quiz</h1>
+            <div class="controls">
+                <div>
+                    <label for="direction" class="muted">Mode</label><br>
+                    <select id="direction" title="Mode">
+                        <option value="latin">Latin → Japanese</option>
+                        <option value="japan">Japanese → Latin</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="script" class="muted">Script</label><br>
+                    <select id="script">
+                        <option value="hiragana">Hiragana</option>
+                        <option value="katakana">Katakana</option>
+                        <option value="random">Random</option>
+                    </select>
+                </div>
+
+                <div class="toggle" title="Timer On / Off">
+                    <div class="muted">Timer</div>
+                    <div id="switch" class="switch on" role="switch" aria-checked="true">
+                        <div class="knob"></div>
+                    </div>
+                </div>
+
+                <div style="text-align:center">
+                    <div class="muted">Countdown</div>
+                    <div id="countdown" class="countdown">3</div>
+                </div>
+            </div>
+        </header>
+
+        <div class="main">
+            <div class="quiz" aria-live="polite">
+                <div class="meta">
+                    <div class="muted">Question <span id="qnum">0</span></div>
+                    <div style="flex:1"></div>
+                    <div class="muted">Score: <span id="score">0</span></div>
+                </div>
+
+                <div id="question" class="question-box">—</div>
+                <div class="options" id="options"></div>
+                <div class="message" id="message">Select an option. If the timer is ON: 3s.</div>
+            </div>
+
+            <aside class="sidebar">
+                <div class="stat"><strong>Quick Guide</strong></div>
+                <ul style="padding-left:18px; margin-top:6px; margin-bottom:12px;">
+                    <li>Mode <em>Latin → Japanese</em>: the question shows romaji/Latin, answers are kana.</li>
+                    <li>Mode <em>Japanese → Latin</em>: the question shows kana, options are romaji.</li>
+                    <li>Correct answers: highlighted green after 5 seconds.</li>
+                    <li>Wrong answers: highlighted red immediately.</li>
+                    <li>3-second timer: if it runs out, counted as wrong.</li>
+                </ul>
+
+                <div style="display:flex; gap:8px; flex-wrap:wrap;">
+                    <button id="startBtn" class="btn">Start / Reset</button>
+                    <button id="nextBtn" class="btn" style="background:#94a3b8;">Skip</button>
+                </div>
+
+                <div style="height:20px"></div>
+                <div class="muted">Quick Settings</div>
+                <div style="margin-top:6px">
+                    <label><input id="showAnswers" type="checkbox"> Show correct answer (debug)</label>
+                </div>
+            </aside>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
+
 </html>
